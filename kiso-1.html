@@ -6,112 +6,111 @@
 <title>①お金が増える本質 - GROW</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:'Hiragino Sans',sans-serif;background:#0a0a0f;color:#e5e5e5;min-height:100vh;padding-bottom:40px;}
-
-  .back-nav{padding:14px 16px;background:#111118;border-bottom:1px solid #2a2a35;}
-  .back-nav a{color:#67e8f9;font-size:13px;font-weight:700;text-decoration:none;}
-
-  .hero{position:relative;background:#0a0a0f;color:#fff;padding:36px 20px 30px;text-align:center;overflow:hidden;border-bottom:1px solid #2a2a35;}
-  .hero::before{
-    content:'';position:absolute;inset:-40%;
-    background:radial-gradient(circle at 30% 30%, rgba(103,232,249,.18), transparent 60%);
-    animation:spin 14s linear infinite;
+  html,body{background:#f7f3ea;}
+  body{
+    font-family:'Hiragino Mincho ProN','Hiragino Sans',serif;color:#1e2d4d;
+    min-height:100vh;padding-bottom:40px;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(201,162,80,.08), transparent 45%),
+      #f7f3ea;
   }
-  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-  .hero-inner{position:relative;z-index:2;}
+
+  .back-nav{padding:14px 16px;background:#fff;border-bottom:1px solid #e3d4ad;}
+  .back-nav a{color:#1e2d4d;font-size:13px;font-weight:700;text-decoration:none;}
+
+  .hero{
+    position:relative;background:#1e2d4d;color:#fff;padding:36px 20px 30px;text-align:center;
+    border-bottom:3px solid #c9a250;
+  }
   .chapter-badge{
     display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
-    color:#67e8f9;border:1px solid rgba(103,232,249,.4);padding:4px 14px;border-radius:99px;
-    margin-bottom:14px;background:rgba(103,232,249,.06);
+    color:#1e2d4d;background:#e9d9ad;padding:4px 16px;border-radius:99px;margin-bottom:14px;
   }
-  .hero h1{font-size:21px;font-weight:900;line-height:1.5;margin-bottom:10px;
-    background:linear-gradient(90deg,#fff,#a5f3fc);-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .hero p{font-size:13px;color:#a1a1aa;line-height:1.7;}
+  .hero h1{font-size:22px;font-weight:900;line-height:1.6;margin-bottom:10px;color:#fff;}
+  .hero p{font-size:12.5px;color:#cdd3e0;line-height:1.7;}
 
   .section-wrap{padding:22px 16px 0;max-width:720px;margin:0 auto;}
 
   .intro-card{
-    background:#111118;border:1px solid #2a2a35;border-radius:16px;padding:20px;margin-bottom:18px;
-    box-shadow:0 0 0 1px rgba(103,232,249,.05), 0 8px 24px rgba(0,0,0,.4);
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:20px;margin-bottom:18px;
+    box-shadow:0 4px 16px rgba(30,45,77,.08);
   }
-  .intro-card .q{color:#67e8f9;font-weight:900;font-size:14px;margin-bottom:10px;line-height:1.6;}
-  .intro-card p{font-size:13px;line-height:1.85;color:#d4d4d8;}
+  .intro-card .q{color:#1e2d4d;font-weight:900;font-size:14px;margin-bottom:10px;line-height:1.7;}
+  .intro-card p{font-size:13px;line-height:1.9;color:#4a4536;}
 
   .summary-box{
-    background:linear-gradient(135deg,rgba(103,232,249,.1),rgba(103,232,249,.02));
-    border:1px solid rgba(103,232,249,.3);border-radius:14px;padding:16px;margin:18px 0;
+    background:#1e2d4d;border-radius:14px;padding:16px 18px;margin:18px 0;
+    box-shadow:0 4px 16px rgba(30,45,77,.15);
   }
-  .summary-box .label{font-size:11px;font-weight:900;color:#67e8f9;letter-spacing:.05em;margin-bottom:6px;}
-  .summary-box .text{font-size:13.5px;font-weight:700;color:#f4f4f5;line-height:1.7;}
+  .summary-box .label{font-size:11px;font-weight:900;color:#c9a250;letter-spacing:.08em;margin-bottom:6px;}
+  .summary-box .text{font-size:13.5px;font-weight:700;color:#fff;line-height:1.8;}
 
-  .section-title{font-size:14px;font-weight:900;color:#f4f4f5;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .section-title{font-size:14px;font-weight:900;color:#1e2d4d;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
   .section-title .num{
-    width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#67e8f9,#0891b2);
-    color:#0a0a0f;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    width:22px;height:22px;border-radius:50%;background:#1e2d4d;border:1px solid #c9a250;
+    color:#e9d9ad;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;
   }
 
   .power-card{
-    background:#111118;border:1px solid #2a2a35;border-radius:14px;padding:16px;margin-bottom:10px;
-    transition:border-color .2s;
+    background:#fff;border:1px solid #e3d4ad;border-left:3px solid #c9a250;border-radius:10px;
+    padding:16px;margin-bottom:10px;
   }
-  .power-card .p-title{font-size:13.5px;font-weight:900;color:#67e8f9;margin-bottom:6px;}
-  .power-card .p-desc{font-size:12.5px;line-height:1.75;color:#b8b8c0;}
+  .power-card .p-title{font-size:13.5px;font-weight:900;color:#1e2d4d;margin-bottom:6px;}
+  .power-card .p-desc{font-size:12.5px;line-height:1.8;color:#5c5748;}
 
   .warn-box{
-    background:rgba(244,114,182,.06);border-left:3px solid #f472b6;border-radius:0 10px 10px 0;
-    padding:14px 16px;margin:16px 0;font-size:12.5px;line-height:1.8;color:#e4e4e7;
+    background:#fbf3e3;border-left:3px solid #c9a250;border-radius:0 10px 10px 0;
+    padding:14px 16px;margin:16px 0;font-size:12.5px;line-height:1.85;color:#4a4536;
   }
-  .warn-box .w-label{font-weight:900;color:#f472b6;margin-bottom:4px;display:block;}
+  .warn-box .w-label{font-weight:900;color:#a5791f;margin-bottom:4px;display:block;}
 
   .flow-box{
-    background:#111118;border:1px solid #2a2a35;border-radius:14px;padding:18px;margin:16px 0;
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:18px;margin:16px 0;
   }
-  .flow-step{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#d4d4d8;padding:6px 0;}
-  .flow-step .fn{color:#67e8f9;font-weight:900;flex-shrink:0;}
-  .flow-arrow{text-align:center;color:#52525b;font-size:14px;padding:2px 0;}
+  .flow-step{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#3c3828;padding:6px 0;}
+  .flow-step .fn{color:#1e2d4d;font-weight:900;flex-shrink:0;}
+  .flow-arrow{text-align:center;color:#c9a250;font-size:14px;padding:2px 0;}
 
   .divider-note{
-    text-align:center;font-size:11px;color:#71717a;margin:22px 0;padding:14px 0;
-    border-top:1px dashed #2a2a35;border-bottom:1px dashed #2a2a35;
+    text-align:center;font-size:11px;color:#9a9282;margin:22px 0;padding:14px 0;
+    border-top:1px dashed #c9a250;border-bottom:1px dashed #c9a250;
   }
 
   .role-card{
-    background:linear-gradient(135deg,#111118,#15151f);border:1px solid #2a2a35;border-radius:16px;
-    padding:20px;margin:18px 0;
+    background:#fff;border:1px solid #e3d4ad;border-radius:16px;padding:20px;margin:18px 0;
+    box-shadow:0 4px 16px rgba(30,45,77,.07);
   }
-  .role-card .r-title{font-size:14px;font-weight:900;color:#f4f4f5;margin-bottom:4px;}
-  .role-card .r-sub{font-size:11.5px;color:#71717a;margin-bottom:16px;}
-  .role-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #1f1f28;}
+  .role-card .r-title{font-size:14px;font-weight:900;color:#1e2d4d;margin-bottom:4px;}
+  .role-card .r-sub{font-size:11.5px;color:#9a9282;margin-bottom:16px;}
+  .role-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0e9d6;}
   .role-row:last-child{border-bottom:none;}
   .role-pill{
     flex-shrink:0;width:68px;text-align:center;font-size:12px;font-weight:900;padding:5px 0;border-radius:8px;
   }
-  .role-pill.consume{background:rgba(244,114,182,.12);color:#f472b6;}
-  .role-pill.save{background:rgba(250,204,21,.12);color:#facc15;}
-  .role-pill.invest{background:rgba(103,232,249,.15);color:#67e8f9;}
-  .role-desc{font-size:12.5px;color:#c4c4cc;line-height:1.6;}
-  .role-desc b{color:#f4f4f5;}
+  .role-pill.consume{background:#fbe9e9;color:#b3463f;}
+  .role-pill.save{background:#fbf3e3;color:#a5791f;}
+  .role-pill.invest{background:#1e2d4d;color:#e9d9ad;}
+  .role-desc{font-size:12.5px;color:#4a4536;line-height:1.7;}
+  .role-desc b{color:#1e2d4d;}
 
   .key-line{
-    text-align:center;font-size:14px;font-weight:900;color:#f4f4f5;margin:18px 0;line-height:1.7;
-    padding:16px;background:rgba(103,232,249,.04);border-radius:12px;border:1px solid rgba(103,232,249,.15);
+    text-align:center;font-size:14px;font-weight:900;color:#1e2d4d;margin:18px 0;line-height:1.8;
+    padding:18px;background:#fbf3e3;border-radius:12px;border:1px solid #c9a250;
   }
-  .key-line .hl{color:#67e8f9;}
+  .key-line .hl{color:#a5791f;}
 
   .next-box{
-    margin-top:28px;background:#111118;border:1px solid #2a2a35;border-radius:14px;padding:16px;
-    font-size:12px;color:#a1a1aa;line-height:1.8;
+    margin-top:28px;background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:16px;
+    font-size:12px;color:#5c5748;line-height:1.85;
   }
-  .next-box b{color:#67e8f9;}
+  .next-box b{color:#1e2d4d;}
 
   .nav-btn{
     display:block;margin:24px 16px 0;max-width:720px;margin-left:auto;margin-right:auto;
-    color:#0a0a0f;font-size:14px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
-    text-decoration:none;background:linear-gradient(90deg,#67e8f9,#22d3ee);
-    box-shadow:0 4px 20px rgba(103,232,249,.25);
+    color:#fff;font-size:14px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
+    text-decoration:none;background:linear-gradient(90deg,#1e2d4d,#2d4270);
+    box-shadow:0 4px 16px rgba(30,45,77,.25);border:1px solid #c9a250;
   }
-  .sub-nav{text-align:center;margin-top:14px;}
-  .sub-nav a{color:#71717a;font-size:12px;text-decoration:none;}
 </style>
 </head>
 <body>
@@ -119,11 +118,9 @@
 <div class="back-nav"><a href="index.html">← GROW 目次に戻る</a></div>
 
 <div class="hero">
-  <div class="hero-inner">
-    <div class="chapter-badge">📗 基礎編 ①</div>
-    <h1>お金が増える本質</h1>
-    <p>資産形成初心者が最初に身につけるべき「考え方」の土台</p>
-  </div>
+  <div class="chapter-badge">📗 基礎編 ①</div>
+  <h1>お金が増える本質</h1>
+  <p>資産形成初心者が最初に身につけるべき「考え方」の土台</p>
 </div>
 
 <div class="section-wrap">
