@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>①お金が増える本質 - GROW</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Hiragino Sans',sans-serif;background:#0a0a0f;color:#e5e5e5;min-height:100vh;padding-bottom:40px;}
+
+  .back-nav{padding:14px 16px;background:#111118;border-bottom:1px solid #2a2a35;}
+  .back-nav a{color:#67e8f9;font-size:13px;font-weight:700;text-decoration:none;}
+
+  .hero{position:relative;background:#0a0a0f;color:#fff;padding:36px 20px 30px;text-align:center;overflow:hidden;border-bottom:1px solid #2a2a35;}
+  .hero::before{
+    content:'';position:absolute;inset:-40%;
+    background:radial-gradient(circle at 30% 30%, rgba(103,232,249,.18), transparent 60%);
+    animation:spin 14s linear infinite;
+  }
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .hero-inner{position:relative;z-index:2;}
+  .chapter-badge{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+    color:#67e8f9;border:1px solid rgba(103,232,249,.4);padding:4px 14px;border-radius:99px;
+    margin-bottom:14px;background:rgba(103,232,249,.06);
+  }
+  .hero h1{font-size:21px;font-weight:900;line-height:1.5;margin-bottom:10px;
+    background:linear-gradient(90deg,#fff,#a5f3fc);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p{font-size:13px;color:#a1a1aa;line-height:1.7;}
+
+  .section-wrap{padding:22px 16px 0;max-width:720px;margin:0 auto;}
+
+  .intro-card{
+    background:#111118;border:1px solid #2a2a35;border-radius:16px;padding:20px;margin-bottom:18px;
+    box-shadow:0 0 0 1px rgba(103,232,249,.05), 0 8px 24px rgba(0,0,0,.4);
+  }
+  .intro-card .q{color:#67e8f9;font-weight:900;font-size:14px;margin-bottom:10px;line-height:1.6;}
+  .intro-card p{font-size:13px;line-height:1.85;color:#d4d4d8;}
+
+  .summary-box{
+    background:linear-gradient(135deg,rgba(103,232,249,.1),rgba(103,232,249,.02));
+    border:1px solid rgba(103,232,249,.3);border-radius:14px;padding:16px;margin:18px 0;
+  }
+  .summary-box .label{font-size:11px;font-weight:900;color:#67e8f9;letter-spacing:.05em;margin-bottom:6px;}
+  .summary-box .text{font-size:13.5px;font-weight:700;color:#f4f4f5;line-height:1.7;}
+
+  .section-title{font-size:14px;font-weight:900;color:#f4f4f5;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .section-title .num{
+    width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#67e8f9,#0891b2);
+    color:#0a0a0f;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+
+  .power-card{
+    background:#111118;border:1px solid #2a2a35;border-radius:14px;padding:16px;margin-bottom:10px;
+    transition:border-color .2s;
+  }
+  .power-card .p-title{font-size:13.5px;font-weight:900;color:#67e8f9;margin-bottom:6px;}
+  .power-card .p-desc{font-size:12.5px;line-height:1.75;color:#b8b8c0;}
+
+  .warn-box{
+    background:rgba(244,114,182,.06);border-left:3px solid #f472b6;border-radius:0 10px 10px 0;
+    padding:14px 16px;margin:16px 0;font-size:12.5px;line-height:1.8;color:#e4e4e7;
+  }
+  .warn-box .w-label{font-weight:900;color:#f472b6;margin-bottom:4px;display:block;}
+
+  .flow-box{
+    background:#111118;border:1px solid #2a2a35;border-radius:14px;padding:18px;margin:16px 0;
+  }
+  .flow-step{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#d4d4d8;padding:6px 0;}
+  .flow-step .fn{color:#67e8f9;font-weight:900;flex-shrink:0;}
+  .flow-arrow{text-align:center;color:#52525b;font-size:14px;padding:2px 0;}
+
+  .divider-note{
+    text-align:center;font-size:11px;color:#71717a;margin:22px 0;padding:14px 0;
+    border-top:1px dashed #2a2a35;border-bottom:1px dashed #2a2a35;
+  }
+
+  .role-card{
+    background:linear-gradient(135deg,#111118,#15151f);border:1px solid #2a2a35;border-radius:16px;
+    padding:20px;margin:18px 0;
+  }
+  .role-card .r-title{font-size:14px;font-weight:900;color:#f4f4f5;margin-bottom:4px;}
+  .role-card .r-sub{font-size:11.5px;color:#71717a;margin-bottom:16px;}
+  .role-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #1f1f28;}
+  .role-row:last-child{border-bottom:none;}
+  .role-pill{
+    flex-shrink:0;width:68px;text-align:center;font-size:12px;font-weight:900;padding:5px 0;border-radius:8px;
+  }
+  .role-pill.consume{background:rgba(244,114,182,.12);color:#f472b6;}
+  .role-pill.save{background:rgba(250,204,21,.12);color:#facc15;}
+  .role-pill.invest{background:rgba(103,232,249,.15);color:#67e8f9;}
+  .role-desc{font-size:12.5px;color:#c4c4cc;line-height:1.6;}
+  .role-desc b{color:#f4f4f5;}
+
+  .key-line{
+    text-align:center;font-size:14px;font-weight:900;color:#f4f4f5;margin:18px 0;line-height:1.7;
+    padding:16px;background:rgba(103,232,249,.04);border-radius:12px;border:1px solid rgba(103,232,249,.15);
+  }
+  .key-line .hl{color:#67e8f9;}
+
+  .next-box{
+    margin-top:28px;background:#111118;border:1px solid #2a2a35;border-radius:14px;padding:16px;
+    font-size:12px;color:#a1a1aa;line-height:1.8;
+  }
+  .next-box b{color:#67e8f9;}
+
+  .nav-btn{
+    display:block;margin:24px 16px 0;max-width:720px;margin-left:auto;margin-right:auto;
+    color:#0a0a0f;font-size:14px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
+    text-decoration:none;background:linear-gradient(90deg,#67e8f9,#22d3ee);
+    box-shadow:0 4px 20px rgba(103,232,249,.25);
+  }
+  .sub-nav{text-align:center;margin-top:14px;}
+  .sub-nav a{color:#71717a;font-size:12px;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div class="back-nav"><a href="index.html">← GROW 目次に戻る</a></div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="chapter-badge">📗 基礎編 ①</div>
+    <h1>お金が増える本質</h1>
+    <p>資産形成初心者が最初に身につけるべき「考え方」の土台</p>
+  </div>
+</div>
+
+<div class="section-wrap">
+
+  <div class="intro-card">
+    <div class="q">✅ 資産形成の考え方とは？<br>9割の資産形成初心者が知らない「お金が増える本質」を徹底解説します！</div>
+    <p>資産形成初心者がまず最初に身につけるものは「資産形成の考え方」です。「どうしても浪費しちゃう」「節約や収入UPだけに頼っちゃう考え方」から「毎月自動で資産が増えていく考え方」になる方法を徹底的に解説します。あなたの資産形成の道は、考え方を変えるところから始まるのです。</p>
+  </div>
+
+  <div class="summary-box">
+    <div class="label">SUMMARY</div>
+    <div class="text">お金には「貯める力」「稼ぐ力」「増やす力」「守る力」「使う力」という5つの力がある。</div>
+  </div>
+
+  <div class="section-title"><span class="num">1</span>お金を増やす「5つの力」</div>
+
+  <div class="power-card">
+    <div class="p-title">貯める力（支出を減らす力）</div>
+    <div class="p-desc">通信費・光熱費・保険・住居・車・税金などの固定費を見直し、満足度を下げずに支出を抑える力です。</div>
+  </div>
+  <div class="power-card">
+    <div class="p-title">稼ぐ力（収入を増やす力）</div>
+    <div class="p-desc">本業の給与アップや転職、副業・事業などを通じて収入源を育てる力です。</div>
+  </div>
+  <div class="power-card">
+    <div class="p-title">増やす力（資産を増やす力）</div>
+    <div class="p-desc">インデックスファンドや高配当株、不動産などの資産運用で、お金に働いてもらう力です。</div>
+  </div>
+  <div class="power-card">
+    <div class="p-title">守る力（資産を減らさない力）</div>
+    <div class="p-desc">詐欺や悪質な金融商品、浪費、インフレ、災害などのリスクから資産を守る力です。</div>
+  </div>
+  <div class="power-card">
+    <div class="p-title">使う力（人生を豊かに使う力）</div>
+    <div class="p-desc">自分の価値観や幸福度につながる自己投資、経験、寄付などに納得してお金を使う力です。</div>
+  </div>
+
+  <div class="warn-box">
+    <span class="w-label">⚠️ 多くの人が落ちる罠</span>
+    多くの人が「稼ぐ力」だと謳っているが、稼げるようになるまで時間がかかり、尚且つ運も絡んでくるので、再現性と即効性がない。また、稼ぎを上げて、上げた分だけ生活の質を上げれば、何も変わらない。その他の力をつけてから、稼ぐ力に手をつけよう。
+  </div>
+
+  <div class="section-title"><span class="num">2</span>お金を増やすための「逆算」</div>
+
+  <div class="flow-box">
+    <div class="flow-step"><span class="fn">①</span> お金を増やしたい</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">②</span> 増やすためのお金がいる（投資資金）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">③</span> 投資資金をどうやって作るか</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">④</span> 固定費削減・節約でお金を生み出す（永続的に生み出せるから超重要）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">⑤</span> 徹底的な家計見直しが必要</div>
+  </div>
+
+  <div class="divider-note">節約依存・収入依存から「仕組みで増やす」思考への切り替え</div>
+
+  <div class="section-title"><span class="num">3</span>お金の「3つの役割」という、もう一つの視点</div>
+
+  <div class="role-card">
+    <div class="r-title">消費・貯金・投資</div>
+    <div class="r-sub">上で紹介した「5つの力」とは別の分類。1つのお金が今どの役割を果たしているかを見る視点です。</div>
+
+    <div class="role-row">
+      <div class="role-pill consume">消費</div>
+      <div class="role-desc"><b>お金を減らす</b>役割。多くの人がここで終わっている。</div>
+    </div>
+    <div class="role-row">
+      <div class="role-pill save">貯金</div>
+      <div class="role-desc"><b>お金を現状維持する</b>役割。ここで止まってしまう人がほとんど。</div>
+    </div>
+    <div class="role-row">
+      <div class="role-pill invest">投資</div>
+      <div class="role-desc"><b>今お金を使って将来のお金を増やす</b>役割。ここを増やしていくことが大事。</div>
+    </div>
+  </div>
+
+  <div class="key-line">
+    お金持ちとそうじゃない人の違いは、<br>
+    <span class="hl">「投資」という役割を取り入れているかどうか</span>
+  </div>
+
+  <div class="next-box">
+    <b>次に進むには：</b> ここで整理した「5つの力」のうち、まず鍵になるのは「貯める力」です。具体的な家計の見直し方は<b>実践編①「増える家計の極意」</b>へ。目標金額から逆算した具体的なロードマップは<b>応用編①「あなただけのロードマップ設計」</b>で扱います。
+  </div>
+
+</div>
+
+<a href="index.html" class="nav-btn">👆 目次に戻る</a>
+
+</body>
+</html>

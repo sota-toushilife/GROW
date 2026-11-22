@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GROW</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#0a0a0f;}
+  body{font-family:'Hiragino Sans',sans-serif;color:#e5e5e5;min-height:100vh;padding-bottom:50px;overflow-x:hidden;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;padding:40px 20px 34px;text-align:center;overflow:hidden;
+    background:#0a0a0f;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:-60%;
+    background:conic-gradient(from 0deg, transparent 0deg, rgba(103,232,249,.22) 60deg, transparent 140deg, transparent 220deg, rgba(103,232,249,.16) 280deg, transparent 340deg);
+    animation:spin 16s linear infinite;
+  }
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .hero-inner{position:relative;z-index:2;}
+
+  .logo-frame{
+    position:relative;max-width:420px;margin:0 auto 18px;border-radius:16px;overflow:hidden;
+    box-shadow:0 0 0 1px rgba(103,232,249,.35), 0 0 30px rgba(103,232,249,.15);
+  }
+  .logo-frame img{display:block;width:100%;}
+
+  .badge{
+    display:inline-block;background:rgba(103,232,249,.08);color:#67e8f9;
+    border:1px solid rgba(103,232,249,.4);font-size:11px;font-weight:700;letter-spacing:.06em;
+    padding:4px 14px;border-radius:99px;margin-bottom:12px;
+  }
+  .hero h1{font-size:22px;font-weight:900;line-height:1.6;margin-bottom:8px;color:#f4f4f5;}
+  .hero p{font-size:12.5px;color:#a1a1aa;line-height:1.8;}
+
+  .access-note{
+    margin:18px auto 0;max-width:420px;font-size:10.5px;color:#52525b;
+    border:1px dashed #2a2a35;border-radius:10px;padding:8px 12px;
+  }
+
+  /* ===== SECTIONS ===== */
+  .section-wrap{padding:26px 16px 0;max-width:620px;margin:0 auto;}
+  .section-title{
+    font-size:12.5px;font-weight:900;color:#67e8f9;letter-spacing:.06em;
+    margin-bottom:12px;display:flex;align-items:center;gap:8px;
+  }
+  .section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(103,232,249,.4),transparent);}
+
+  .card{
+    position:relative;background:#111118;border:1px solid #2a2a35;border-radius:16px;
+    margin-bottom:12px;overflow:hidden;text-decoration:none;display:block;
+    transition:transform .15s, border-color .2s; box-shadow:0 6px 18px rgba(0,0,0,.35);
+  }
+  .card:active{transform:scale(.98);}
+  .card.chapter:hover, .card.chapter:active{border-color:rgba(103,232,249,.5);}
+
+  .card-img{width:100%;display:block;max-height:150px;object-fit:cover;object-position:top;}
+
+  .card-inner{display:flex;align-items:center;padding:16px;}
+  .card-icon{
+    width:42px;height:42px;border-radius:12px;flex-shrink:0;margin-right:12px;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    background:linear-gradient(135deg,#1c1c26,#2a2a35);border:1px solid rgba(103,232,249,.25);
+  }
+  .card-text{flex:1;min-width:0;}
+  .card-label{font-size:10.5px;color:#67e8f9;font-weight:900;letter-spacing:.04em;margin-bottom:2px;}
+  .card-title{font-size:14px;font-weight:900;color:#f4f4f5;}
+  .card-desc{font-size:11px;color:#8b8b95;margin-top:3px;line-height:1.5;}
+  .card-arrow{margin-left:10px;color:#52525b;font-size:18px;flex-shrink:0;}
+
+  /* 特典カード：ゴールド系 */
+  .card.tokuten .card-icon{background:linear-gradient(135deg,#2a2210,#3d3015);border-color:rgba(250,204,21,.3);}
+  .card.tokuten .card-label{color:#facc15;}
+
+  /* 未解放ロック */
+  .card.locked{opacity:.45;pointer-events:none;}
+  .card.locked .card-arrow::before{content:'🔒';font-size:13px;}
+
+  .line-btn{
+    display:block;margin:28px 16px 0;max-width:620px;margin-left:auto;margin-right:auto;
+    color:#0a0a0f;font-size:15px;font-weight:900;text-align:center;padding:17px;border-radius:14px;
+    text-decoration:none;background:linear-gradient(90deg,#67e8f9,#22d3ee);
+    box-shadow:0 4px 20px rgba(103,232,249,.3);
+  }
+
+  .footer-note{text-align:center;font-size:10.5px;color:#3f3f46;margin-top:26px;padding:0 20px;line-height:1.8;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo-frame">
+      <img src="images/grow-logo.png" alt="GROW program - Get Rich Own Way">
+    </div>
+    <div class="badge">🔒 有料プログラム限定ページ</div>
+    <h1>GROWへようこそ</h1>
+    <p>ここはGROW（Get Rich Own Way）参加者専用の学習ページです。<br>基礎編・実践編・応用編・特典を、このページから進めていきます。</p>
+    <div class="access-note">※このページは検索エンジンに公開していません。URLを知っている方のみアクセスできます。</div>
+  </div>
+</div>
+
+<!-- 基礎編 -->
+<div class="section-wrap">
+  <div class="section-title">📗 基礎編</div>
+  <a href="kiso-1.html" class="card chapter">
+    <img src="images/banner-kiso.png" class="card-img" alt="基礎編：お金の本質と資産形成">
+    <div class="card-inner">
+      <div class="card-icon">📗</div>
+      <div class="card-text">
+        <div class="card-label">基礎編 ①</div>
+        <div class="card-title">お金が増える本質</div>
+        <div class="card-desc">資産形成の考え方の土台をつくる</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+  <a href="#" class="card chapter locked">
+    <div class="card-inner">
+      <div class="card-icon">📗</div>
+      <div class="card-text">
+        <div class="card-label">基礎編 ②〜⑧</div>
+        <div class="card-title">準備中</div>
+        <div class="card-desc">目標設定・自己分析シートなど、順次公開予定</div>
+      </div>
+      <div class="card-arrow"></div>
+    </div>
+  </a>
+</div>
+
+<!-- 実践編 -->
+<div class="section-wrap">
+  <div class="section-title">📘 実践編</div>
+  <a href="#" class="card chapter locked">
+    <img src="images/banner-jissen.png" class="card-img" alt="実践編：貯めるから増やすへ">
+    <div class="card-inner">
+      <div class="card-icon">📘</div>
+      <div class="card-text">
+        <div class="card-label">実践編 ①〜⑧</div>
+        <div class="card-title">準備中</div>
+        <div class="card-desc">増える家計の極意、NISA実践など</div>
+      </div>
+      <div class="card-arrow"></div>
+    </div>
+  </a>
+</div>
+
+<!-- 応用編 -->
+<div class="section-wrap">
+  <div class="section-title">📙 応用編</div>
+  <a href="#" class="card chapter locked">
+    <img src="images/banner-ouyo.png" class="card-img" alt="応用編：資産形成ガイド">
+    <div class="card-inner">
+      <div class="card-icon">📙</div>
+      <div class="card-text">
+        <div class="card-label">応用編 ①〜⑤</div>
+        <div class="card-title">準備中</div>
+        <div class="card-desc">専用ロードマップ設計、隠れ神器3選など</div>
+      </div>
+      <div class="card-arrow"></div>
+    </div>
+  </a>
+</div>
+
+<!-- スペシャル特典 -->
+<div class="section-wrap">
+  <div class="section-title">🎁 スペシャル特典</div>
+  <a href="#" class="card tokuten locked">
+    <div class="card-inner">
+      <div class="card-icon">🎁</div>
+      <div class="card-text">
+        <div class="card-label">特典 ①〜⑤</div>
+        <div class="card-title">準備中</div>
+        <div class="card-desc">順次公開予定</div>
+      </div>
+      <div class="card-arrow"></div>
+    </div>
+  </a>
+</div>
+
+<a href="https://lin.ee/tXRnQHW" class="line-btn">💬 そうたに聞いてみる</a>
+
+<div class="footer-note">GROW program — Get Rich Own Way<br>本ページの内容の無断転載・再配布を禁じます</div>
+
+</body>
+</html>
