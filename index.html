@@ -7,14 +7,18 @@
 <title>GROW</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{background:#f7f3ea;}
+  html,body{background:#efe8d8;}
   body{
-    font-family:'Hiragino Mincho ProN','Hiragino Sans',serif;
+    font-family:'Hiragino Sans',sans-serif;
     color:#1e2d4d;min-height:100vh;padding-bottom:50px;overflow-x:hidden;
     background:
-      radial-gradient(circle at 15% 0%, rgba(201,162,80,.10), transparent 45%),
-      radial-gradient(circle at 85% 10%, rgba(30,45,77,.06), transparent 45%),
-      #f7f3ea;
+      radial-gradient(ellipse at 20% 0%, rgba(255,255,255,.55), transparent 50%),
+      radial-gradient(ellipse at 85% 15%, rgba(201,162,80,.18), transparent 45%),
+      radial-gradient(ellipse at 10% 60%, rgba(30,45,77,.08), transparent 45%),
+      repeating-linear-gradient(118deg, rgba(180,170,145,.05) 0px, rgba(180,170,145,.05) 1px, transparent 1px, transparent 38px),
+      repeating-linear-gradient(32deg, rgba(255,255,255,.35) 0px, rgba(255,255,255,.35) 1px, transparent 1px, transparent 54px),
+      linear-gradient(170deg, #f3ede0, #e9dfc9 55%, #efe8d8);
+    background-attachment:fixed;
   }
 
   /* ===== HERO ===== */
@@ -25,7 +29,7 @@
   }
   .logo-frame{
     position:relative;max-width:420px;margin:0 auto 18px;border-radius:10px;overflow:hidden;
-    box-shadow:0 0 0 1px #c9a250, 0 10px 26px rgba(30,45,77,.18);
+    box-shadow:0 0 0 1px #c9a250, 0 14px 30px rgba(30,45,77,.22);
   }
   .logo-frame img{display:block;width:100%;}
 
@@ -36,81 +40,86 @@
     box-shadow:0 2px 8px rgba(30,45,77,.2);
   }
   .hero h1{
-    font-size:23px;font-weight:900;line-height:1.6;margin-bottom:10px;color:#1e2d4d;
+    font-size:23px;font-weight:900;line-height:1.6;color:#1e2d4d;
     letter-spacing:.02em;
-  }
-  .hero p{font-size:12.5px;color:#6b6456;line-height:1.85;}
-
-  .access-note{
-    margin:18px auto 0;max-width:420px;font-size:10.5px;color:#9a9282;
-    border:1px dashed #c9a250;border-radius:10px;padding:9px 12px;background:rgba(201,162,80,.06);
   }
 
   /* ===== SECTIONS ===== */
-  .section-wrap{padding:30px 16px 0;max-width:640px;margin:0 auto;}
+  .section-wrap{padding:32px 16px 0;max-width:720px;margin:0 auto;}
   .section-title{
     font-size:13px;font-weight:900;color:#1e2d4d;letter-spacing:.08em;
-    margin-bottom:16px;display:flex;align-items:center;gap:10px;
+    margin-bottom:18px;display:flex;align-items:center;gap:10px;
   }
   .section-title .dot{width:7px;height:7px;border-radius:50%;background:#c9a250;flex-shrink:0;}
   .section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#c9a250,transparent);}
 
-  /* ===== BOOK (book-opening gimmick) ===== */
+  /* ===== BOOK ===== */
   .book-row{
-    display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-bottom:22px;
+    display:flex;gap:26px;flex-wrap:wrap;justify-content:center;margin-bottom:26px;
   }
   .book-slot{
-    perspective:1600px;width:180px;
+    perspective:2000px;width:260px;
   }
   .book-slot.locked{opacity:.55;}
 
   .book{
     position:relative;width:100%;aspect-ratio:3/4.3;cursor:pointer;
-    transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,.1,.2,1);
+    transform-style:preserve-3d;transition:transform .55s cubic-bezier(.3,.1,.25,1);
     transform-origin:left center;
   }
   .book-slot.locked .book{cursor:not-allowed;}
-  .book-slot:not(.locked) .book:hover{transform:rotateY(-18deg);}
-  .book-slot:not(.locked) .book.opened{transform:rotateY(-130deg);}
+  .book-slot:not(.locked) .book:hover{transform:rotateY(-10deg) scale(1.02);}
 
   .book-cover{
-    position:absolute;inset:0;border-radius:4px 8px 8px 4px;overflow:hidden;
-    box-shadow:4px 8px 22px rgba(30,45,77,.28), inset -3px 0 6px rgba(0,0,0,.15);
+    position:absolute;inset:0;border-radius:4px 10px 10px 4px;overflow:hidden;
+    box-shadow:6px 10px 26px rgba(30,45,77,.3), inset -4px 0 8px rgba(0,0,0,.18);
     backface-visibility:hidden;
   }
   .book-cover img{width:100%;height:100%;object-fit:cover;display:block;}
   .book-spine{
-    position:absolute;left:0;top:0;bottom:0;width:10px;
+    position:absolute;left:0;top:0;bottom:0;width:12px;
     background:linear-gradient(90deg,#10182c,#1e2d4d);
-    border-radius:4px 0 0 4px;
+    border-radius:4px 0 0 4px;z-index:2;
   }
 
-  .book-page{
-    position:absolute;inset:0;border-radius:4px 8px 8px 4px;
-    background:linear-gradient(135deg,#fffdf7,#f3ead6);
-    box-shadow:inset 0 0 0 1px #e3d4ad, 4px 8px 22px rgba(30,45,77,.2);
-    transform:rotateY(180deg);backface-visibility:hidden;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    padding:16px;text-align:center;
-  }
-  .book-page .pg-label{font-size:10px;color:#c9a250;font-weight:900;letter-spacing:.08em;margin-bottom:6px;}
-  .book-page .pg-title{font-size:13px;font-weight:900;color:#1e2d4d;line-height:1.5;margin-bottom:10px;}
-  .book-page .pg-link{
-    font-size:11px;font-weight:700;color:#fff;background:#1e2d4d;
-    padding:7px 14px;border-radius:99px;text-decoration:none;
-    box-shadow:0 2px 8px rgba(30,45,77,.3);
-  }
-  .book-page .pg-lock{font-size:18px;color:#c9a250;}
-  .book-page .pg-note{font-size:10px;color:#9a9282;margin-top:6px;line-height:1.6;}
+  .book-cap{text-align:center;margin-top:12px;font-size:12px;font-weight:700;color:#1e2d4d;}
+  .book-cap .sub{display:block;font-size:10.5px;color:#9a9282;font-weight:400;margin-top:3px;}
 
-  .book-cap{text-align:center;margin-top:8px;font-size:11px;font-weight:700;color:#1e2d4d;}
-  .book-cap .sub{display:block;font-size:10px;color:#9a9282;font-weight:400;margin-top:2px;}
+  /* ===== Immersive "enter the book" overlay ===== */
+  .book-overlay{
+    position:fixed;inset:0;z-index:999;background:#1e2d4d;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .4s ease;
+  }
+  .book-overlay.active{opacity:1;pointer-events:auto;}
+  .book-overlay-bg{
+    position:absolute;inset:0;background-size:cover;background-position:center;
+    filter:blur(2px) brightness(.5);transform:scale(1.15);
+  }
+  .book-overlay-content{
+    position:relative;z-index:2;text-align:center;color:#fff;
+    transform:scale(.85);opacity:0;transition:transform .5s ease .15s, opacity .5s ease .15s;
+  }
+  .book-overlay.active .book-overlay-content{transform:scale(1);opacity:1;}
+  .book-overlay-content .ov-label{font-size:12px;color:#e9d9ad;font-weight:900;letter-spacing:.1em;margin-bottom:10px;}
+  .book-overlay-content .ov-title{font-size:22px;font-weight:900;margin-bottom:22px;}
+  .book-overlay-content .ov-link{
+    display:inline-block;font-size:14px;font-weight:900;color:#1e2d4d;background:#e9d9ad;
+    padding:12px 32px;border-radius:99px;text-decoration:none;
+    box-shadow:0 4px 16px rgba(0,0,0,.3);
+  }
+  .book-overlay-content .ov-note{font-size:11px;color:#cdd3e0;margin-top:14px;}
+  .book-overlay-close{
+    position:absolute;top:20px;right:20px;z-index:3;color:#fff;font-size:22px;
+    width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+  }
 
   /* ===== 特典 ===== */
   .tokuten-card{
-    display:flex;align-items:center;background:#fff;border:1px solid #e3d4ad;border-radius:14px;
+    display:flex;align-items:center;background:rgba(255,255,255,.75);border:1px solid #e3d4ad;border-radius:14px;
     padding:15px 16px;margin-bottom:10px;box-shadow:0 3px 10px rgba(30,45,77,.06);
-    opacity:.6;
+    opacity:.65;
   }
   .tokuten-icon{
     width:40px;height:40px;border-radius:10px;flex-shrink:0;margin-right:12px;
@@ -123,7 +132,7 @@
   .tokuten-lock{color:#c9a250;font-size:14px;}
 
   .line-btn{
-    display:block;margin:28px 16px 0;max-width:640px;margin-left:auto;margin-right:auto;
+    display:block;margin:28px 16px 0;max-width:720px;margin-left:auto;margin-right:auto;
     color:#fff;font-size:15px;font-weight:900;text-align:center;padding:17px;border-radius:14px;
     text-decoration:none;background:linear-gradient(90deg,#1e2d4d,#2d4270);
     box-shadow:0 6px 20px rgba(30,45,77,.3);
@@ -141,8 +150,6 @@
   </div>
   <div class="badge">🔒 有料プログラム限定ページ</div>
   <h1>GROWへようこそ</h1>
-  <p>ここはGROW（Get Rich Own Way）参加者専用の学習ページです。<br>本をタップすると開きます。中の教材へ進んでください。</p>
-  <div class="access-note">※このページは検索エンジンに公開していません。URLを知っている方のみアクセスできます。</div>
 </div>
 
 <div class="section-wrap">
@@ -153,16 +160,10 @@
     <!-- 基礎編 -->
     <div>
       <div class="book-slot" id="slot-kiso">
-        <div class="book" id="book-kiso" onclick="toggleBook('kiso')">
+        <div class="book" onclick="openBook('kiso', 'images/banner-kiso.png', '基礎編 ①', 'お金が増える本質', 'kiso-1.html', '②〜⑧ 準備中')">
           <div class="book-cover">
             <div class="book-spine"></div>
             <img src="images/banner-kiso.png" alt="基礎編：お金の本質と資産形成">
-          </div>
-          <div class="book-page">
-            <div class="pg-label">基礎編 ①</div>
-            <div class="pg-title">お金が増える本質</div>
-            <a href="kiso-1.html" class="pg-link">読む →</a>
-            <div class="pg-note">②〜⑧ 準備中</div>
           </div>
         </div>
       </div>
@@ -172,15 +173,10 @@
     <!-- 実践編 -->
     <div>
       <div class="book-slot locked" id="slot-jissen">
-        <div class="book" id="book-jissen">
+        <div class="book">
           <div class="book-cover">
             <div class="book-spine"></div>
             <img src="images/banner-jissen.png" alt="実践編：貯めるから増やすへ">
-          </div>
-          <div class="book-page">
-            <div class="pg-lock">🔒</div>
-            <div class="pg-title">準備中</div>
-            <div class="pg-note">増える家計の極意、NISA実践など</div>
           </div>
         </div>
       </div>
@@ -190,15 +186,10 @@
     <!-- 応用編 -->
     <div>
       <div class="book-slot locked" id="slot-ouyo">
-        <div class="book" id="book-ouyo">
+        <div class="book">
           <div class="book-cover">
             <div class="book-spine"></div>
             <img src="images/banner-ouyo.png" alt="応用編：資産形成ガイド">
-          </div>
-          <div class="book-page">
-            <div class="pg-lock">🔒</div>
-            <div class="pg-title">準備中</div>
-            <div class="pg-note">専用ロードマップ設計、隠れ神器3選など</div>
           </div>
         </div>
       </div>
@@ -224,10 +215,29 @@
 
 <div class="footer-note">GROW program — Get Rich Own Way<br>本ページの内容の無断転載・再配布を禁じます</div>
 
+<!-- Immersive overlay -->
+<div class="book-overlay" id="bookOverlay">
+  <div class="book-overlay-bg" id="overlayBg"></div>
+  <div class="book-overlay-close" onclick="closeBook()">✕</div>
+  <div class="book-overlay-content">
+    <div class="ov-label" id="overlayLabel"></div>
+    <div class="ov-title" id="overlayTitle"></div>
+    <a href="#" class="ov-link" id="overlayLink">読みはじめる →</a>
+    <div class="ov-note" id="overlayNote"></div>
+  </div>
+</div>
+
 <script>
-  function toggleBook(name){
-    var book = document.getElementById('book-' + name);
-    book.classList.toggle('opened');
+  function openBook(name, img, label, title, link, note){
+    document.getElementById('overlayBg').style.backgroundImage = "url('" + img + "')";
+    document.getElementById('overlayLabel').textContent = label;
+    document.getElementById('overlayTitle').textContent = title;
+    document.getElementById('overlayLink').href = link;
+    document.getElementById('overlayNote').textContent = note;
+    document.getElementById('bookOverlay').classList.add('active');
+  }
+  function closeBook(){
+    document.getElementById('bookOverlay').classList.remove('active');
   }
 </script>
 
