@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>②3つのポイント（家計編） - GROW</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#f7f3ea;}
+  body{
+    font-family:'Hiragino Sans',sans-serif;color:#1e2d4d;
+    min-height:100vh;padding-bottom:40px;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(201,162,80,.08), transparent 45%),
+      #f7f3ea;
+  }
+
+  .back-nav{padding:14px 16px;background:#fff;border-bottom:1px solid #e3d4ad;}
+  .back-nav a{color:#1e2d4d;font-size:13px;font-weight:700;text-decoration:none;}
+
+  .hero{
+    position:relative;background:#1e2d4d;color:#fff;padding:36px 20px 30px;text-align:center;
+    border-bottom:3px solid #c9a250;
+  }
+  .chapter-badge{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+    color:#1e2d4d;background:#e9d9ad;padding:4px 16px;border-radius:99px;margin-bottom:14px;
+  }
+  .hero h1{font-size:22px;font-weight:900;line-height:1.6;margin-bottom:10px;color:#fff;}
+  .hero p{font-size:12.5px;color:#cdd3e0;line-height:1.7;}
+
+  .section-wrap{padding:22px 16px 0;max-width:720px;margin:0 auto;}
+
+  .intro-card{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:20px;margin-bottom:18px;
+    box-shadow:0 4px 16px rgba(30,45,77,.08);
+  }
+  .intro-card .q{color:#1e2d4d;font-weight:900;font-size:14px;margin-bottom:10px;line-height:1.7;}
+  .intro-card p{font-size:13px;line-height:1.9;color:#4a4536;}
+
+  .summary-box{
+    background:#1e2d4d;border-radius:14px;padding:16px 18px;margin:18px 0;
+    box-shadow:0 4px 16px rgba(30,45,77,.15);
+  }
+  .summary-box .label{font-size:11px;font-weight:900;color:#c9a250;letter-spacing:.08em;margin-bottom:6px;}
+  .summary-box .text{font-size:13.5px;font-weight:700;color:#fff;line-height:1.8;}
+
+  .section-title{font-size:14px;font-weight:900;color:#1e2d4d;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .section-title .num{
+    width:22px;height:22px;border-radius:50%;background:#1e2d4d;border:1px solid #c9a250;
+    color:#e9d9ad;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+
+  .power-card{
+    background:#fff;border:1px solid #e3d4ad;border-left:3px solid #c9a250;border-radius:10px;
+    padding:16px;margin-bottom:10px;
+  }
+  .power-card .p-title{font-size:13.5px;font-weight:900;color:#1e2d4d;margin-bottom:6px;}
+  .power-card .p-desc{font-size:12.5px;line-height:1.8;color:#5c5748;}
+
+  .role-card{
+    background:#fff;border:1px solid #e3d4ad;border-radius:16px;padding:20px;margin:18px 0;
+    box-shadow:0 4px 16px rgba(30,45,77,.07);
+  }
+  .role-card .r-title{font-size:14px;font-weight:900;color:#1e2d4d;margin-bottom:4px;}
+  .role-card .r-sub{font-size:11.5px;color:#9a9282;margin-bottom:16px;}
+  .role-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0e9d6;}
+  .role-row:last-child{border-bottom:none;}
+  .role-pill{
+    flex-shrink:0;width:68px;text-align:center;font-size:12px;font-weight:900;padding:5px 0;border-radius:8px;
+  }
+  .role-pill.a{background:#fbe9e9;color:#b3463f;}
+  .role-pill.b{background:#1e2d4d;color:#e9d9ad;}
+  .role-desc{font-size:12.5px;color:#4a4536;line-height:1.7;}
+  .role-desc b{color:#1e2d4d;}
+
+  .divider-note{
+    text-align:center;font-size:11px;color:#9a9282;margin:22px 0;padding:14px 0;
+    border-top:1px dashed #c9a250;border-bottom:1px dashed #c9a250;
+  }
+
+  .key-line{
+    text-align:center;font-size:14px;font-weight:900;color:#1e2d4d;margin:18px 0;line-height:1.8;
+    padding:18px;background:#fbf3e3;border-radius:12px;border:1px solid #c9a250;
+  }
+  .key-line .hl{color:#a5791f;}
+
+  .next-box{
+    margin-top:28px;background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:16px;
+    font-size:12px;color:#5c5748;line-height:1.85;
+  }
+  .next-box b{color:#1e2d4d;}
+
+  .nav-btn{
+    display:block;margin:24px 16px 0;max-width:720px;margin-left:auto;margin-right:auto;
+    color:#fff;font-size:14px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
+    text-decoration:none;background:linear-gradient(90deg,#1e2d4d,#2d4270);
+    box-shadow:0 4px 16px rgba(30,45,77,.25);border:1px solid #c9a250;
+  }
+</style>
+</head>
+<body>
+
+<div class="back-nav"><a href="index.html?open=jissen">← 実践編に戻る</a></div>
+
+<div class="hero">
+  <div class="chapter-badge">📘 実践編 ②</div>
+  <h1>3つのポイント（家計編）</h1>
+  <p>誘惑に負けない強い資産形成家になるために</p>
+</div>
+
+<div class="section-wrap">
+
+  <div class="intro-card">
+    <div class="q">✅ このポイントを押さえればOK！お金を増やすために覚えておくべき3つのポイント！</div>
+    <p>増やせる人に共通する3つのポイントをあなただけにお伝えします。この3つのポイントを押さえれば、あなたは誘惑に負けない強い資産形成家になることができます。資産形成初心者でも増やせる人になれる3つのポイントを大公開！</p>
+  </div>
+
+  <div class="summary-box">
+    <div class="label">SUMMARY</div>
+    <div class="text">家計管理で挫折しないための共通ルール</div>
+  </div>
+
+  <div class="section-title"><span class="num">1</span>完璧を求めなくていい</div>
+
+  <div class="power-card">
+    <div class="p-title">昨日の自分より1つ前に進めていればいい</div>
+    <div class="p-desc">できない日があっても、無駄に浪費してしまう日があってもいい。学びになったでもいい。完璧を目指すと続きません。</div>
+  </div>
+
+  <div class="section-title"><span class="num">2</span>事実と解釈を分ける</div>
+
+  <div class="role-card">
+    <div class="r-title">「今浪費した」をどう捉えるか</div>
+    <div class="r-sub">事実と、それに対する自分の解釈を分けて考える練習です。</div>
+
+    <div class="role-row">
+      <div class="role-pill a">事実</div>
+      <div class="role-desc"><b>今浪費した。</b>ただそれだけの出来事です。</div>
+    </div>
+    <div class="role-row">
+      <div class="role-pill b">解釈</div>
+      <div class="role-desc">「悪いことをしたな」という<b>自分の受け取り方</b>。ここは分けて考える。</div>
+    </div>
+  </div>
+
+  <div class="divider-note">事実に対して、次の一手を考える</div>
+
+  <div class="key-line">
+    完璧じゃなくていい<br>
+    <span class="hl">昨日の自分より一歩前へ</span>
+  </div>
+
+  <div class="next-box">
+    <b>次に進むには：</b> 固定費の具体的な見直し方は実践編③「固定費削減早見表」、浪費を減らす実践的なフレームは実践編⑤「○○○○サイクル」で扱います。
+  </div>
+
+</div>
+
+<a href="index.html?open=jissen" class="nav-btn">👆 実践編に戻る</a>
+
+</body>
+</html>

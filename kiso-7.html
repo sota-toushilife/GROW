@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>⑦自己分析の書き方 - GROW</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#f7f3ea;}
+  body{
+    font-family:'Hiragino Sans',sans-serif;color:#1e2d4d;
+    min-height:100vh;padding-bottom:40px;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(201,162,80,.08), transparent 45%),
+      #f7f3ea;
+  }
+
+  .back-nav{padding:14px 16px;background:#fff;border-bottom:1px solid #e3d4ad;}
+  .back-nav a{color:#1e2d4d;font-size:13px;font-weight:700;text-decoration:none;}
+
+  .hero{
+    position:relative;background:#1e2d4d;color:#fff;padding:36px 20px 30px;text-align:center;
+    border-bottom:3px solid #c9a250;
+  }
+  .chapter-badge{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+    color:#1e2d4d;background:#e9d9ad;padding:4px 16px;border-radius:99px;margin-bottom:14px;
+  }
+  .hero h1{font-size:22px;font-weight:900;line-height:1.6;margin-bottom:10px;color:#fff;}
+  .hero p{font-size:12.5px;color:#cdd3e0;line-height:1.7;}
+
+  .section-wrap{padding:22px 16px 0;max-width:720px;margin:0 auto;}
+
+  .intro-card{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:20px;margin-bottom:18px;
+    box-shadow:0 4px 16px rgba(30,45,77,.08);
+  }
+  .intro-card .q{color:#1e2d4d;font-weight:900;font-size:14px;margin-bottom:10px;line-height:1.7;}
+  .intro-card p{font-size:13px;line-height:1.9;color:#4a4536;}
+
+  .summary-box{
+    background:#1e2d4d;border-radius:14px;padding:16px 18px;margin:18px 0;
+    box-shadow:0 4px 16px rgba(30,45,77,.15);
+  }
+  .summary-box .label{font-size:11px;font-weight:900;color:#c9a250;letter-spacing:.08em;margin-bottom:6px;}
+  .summary-box .text{font-size:13.5px;font-weight:700;color:#fff;line-height:1.8;}
+
+  .section-title{font-size:14px;font-weight:900;color:#1e2d4d;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .section-title .num{
+    width:22px;height:22px;border-radius:50%;background:#1e2d4d;border:1px solid #c9a250;
+    color:#e9d9ad;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+
+  .flow-box{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:18px;margin:16px 0;
+  }
+  .flow-step{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#3c3828;padding:6px 0;}
+  .flow-step .fn{color:#1e2d4d;font-weight:900;flex-shrink:0;}
+  .flow-arrow{text-align:center;color:#c9a250;font-size:14px;padding:2px 0;}
+
+  .power-card{
+    background:#fff;border:1px solid #e3d4ad;border-left:3px solid #c9a250;border-radius:10px;
+    padding:16px;margin-bottom:10px;
+  }
+  .power-card .p-title{font-size:13.5px;font-weight:900;color:#1e2d4d;margin-bottom:6px;}
+  .power-card .p-desc{font-size:12.5px;line-height:1.8;color:#5c5748;}
+
+  .warn-box{
+    background:#fbf3e3;border-left:3px solid #c9a250;border-radius:0 10px 10px 0;
+    padding:14px 16px;margin:16px 0;font-size:12.5px;line-height:1.85;color:#4a4536;
+  }
+  .warn-box .w-label{font-weight:900;color:#a5791f;margin-bottom:4px;display:block;}
+
+  .divider-note{
+    text-align:center;font-size:11px;color:#9a9282;margin:22px 0;padding:14px 0;
+    border-top:1px dashed #c9a250;border-bottom:1px dashed #c9a250;
+  }
+
+  .key-line{
+    text-align:center;font-size:14px;font-weight:900;color:#1e2d4d;margin:18px 0;line-height:1.8;
+    padding:18px;background:#fbf3e3;border-radius:12px;border:1px solid #c9a250;
+  }
+  .key-line .hl{color:#a5791f;}
+
+  .next-box{
+    margin-top:28px;background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:16px;
+    font-size:12px;color:#5c5748;line-height:1.85;
+  }
+  .next-box b{color:#1e2d4d;}
+
+  .nav-btn{
+    display:block;margin:24px 16px 0;max-width:720px;margin-left:auto;margin-right:auto;
+    color:#fff;font-size:14px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
+    text-decoration:none;background:linear-gradient(90deg,#1e2d4d,#2d4270);
+    box-shadow:0 4px 16px rgba(30,45,77,.25);border:1px solid #c9a250;
+  }
+</style>
+</head>
+<body>
+
+<div class="back-nav"><a href="index.html?open=kiso">← 基礎編に戻る</a></div>
+
+<div class="hero">
+  <div class="chapter-badge">📗 基礎編 ⑦</div>
+  <h1>自己分析の書き方</h1>
+  <p>⑥のシートを初心者でも迷わず書ける手順</p>
+</div>
+
+<div class="section-wrap">
+
+  <div class="intro-card">
+    <div class="q">✅ 具体的にどうやって書き出すの？というあなたの不安を解消！初心者でもできる「自己分析」方法を1から解説！</div>
+    <p>資産形成初心者がまずやるべきなのは、自分のお金のことを書き出すこと。分析しやすい、わかりやすい、自己分析シートの書き方を初心者でもわかるように丁寧に解説します。ここではあなたのお金の動きも徹底的に分析します。</p>
+  </div>
+
+  <div class="summary-box">
+    <div class="label">SUMMARY</div>
+    <div class="text">基礎編⑥シートの記入手順を初心者向けに解説</div>
+  </div>
+
+  <div class="section-title"><span class="num">1</span>なぜ「今の現状を知る」ことが大事なのか</div>
+
+  <div class="power-card">
+    <div class="p-title">現状を知らなければ、改善もできない</div>
+    <div class="p-desc">今の自分のお金の流れを知らないまま資産形成を始めても、何を削れば増えるのか、どこにお金が流れているのかが分からず、行動に繋がりません。まず「見える化」することが、すべての第一歩です。</div>
+  </div>
+
+  <div class="section-title"><span class="num">2</span>⑥シートの記入手順</div>
+
+  <div class="flow-box">
+    <div class="flow-step"><span class="fn">①</span> 目標設定シートを書く（目標資産額・いつまでに・何がしたいか）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">②</span> 資産シートを書く（収入・銀行口座・証券口座の残高）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">③</span> 支出シートを書く（固定費→変動費の順）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">④</span> 「収入－支出」でいくら余剰があるか確認する</div>
+  </div>
+
+  <div class="warn-box">
+    <span class="w-label">💡 正確さより「まず書く」ことが大事</span>
+    家計簿アプリやクレジットカードの履歴、銀行アプリを見ながら、おおよその数字でいいので書き出しましょう。1円単位の正確さより、全体像を把握することが目的です。
+  </div>
+
+  <div class="power-card">
+    <div class="p-title">固定費から書く理由</div>
+    <div class="p-desc">固定費は毎月ほぼ同じ金額がかかるため、変動費より先に把握しやすく、見直しの効果も大きいからです。基礎編④「資産形成の土台」の「貯める力」とも直結します。</div>
+  </div>
+
+  <div class="divider-note">今の現状を知ることが、資産形成の第一歩</div>
+
+  <div class="key-line">
+    まずは「現状」を<br>
+    <span class="hl">全部書き出す</span>ことから始める
+  </div>
+
+  <div class="next-box">
+    <b>次に進むには：</b> 書き出した支出の中から「無駄な浪費」を見つける視点は基礎編③「浪費習慣を断つ方法」、具体的な節約の仕組み化は実践編①「増える家計の極意」で扱います。
+  </div>
+
+</div>
+
+<a href="index.html?open=kiso" class="nav-btn">👆 基礎編に戻る</a>
+
+</body>
+</html>

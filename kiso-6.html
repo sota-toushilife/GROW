@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>⑥自己分析シート - GROW</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#f7f3ea;}
+  body{
+    font-family:'Hiragino Sans',sans-serif;color:#1e2d4d;
+    min-height:100vh;padding-bottom:40px;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(201,162,80,.08), transparent 45%),
+      #f7f3ea;
+  }
+
+  .back-nav{padding:14px 16px;background:#fff;border-bottom:1px solid #e3d4ad;}
+  .back-nav a{color:#1e2d4d;font-size:13px;font-weight:700;text-decoration:none;}
+
+  .hero{
+    position:relative;background:#1e2d4d;color:#fff;padding:36px 20px 30px;text-align:center;
+    border-bottom:3px solid #c9a250;
+  }
+  .chapter-badge{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+    color:#1e2d4d;background:#e9d9ad;padding:4px 16px;border-radius:99px;margin-bottom:14px;
+  }
+  .hero h1{font-size:22px;font-weight:900;line-height:1.6;margin-bottom:10px;color:#fff;}
+  .hero p{font-size:12.5px;color:#cdd3e0;line-height:1.7;}
+
+  .section-wrap{padding:22px 16px 0;max-width:720px;margin:0 auto;}
+
+  .intro-card{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:20px;margin-bottom:18px;
+    box-shadow:0 4px 16px rgba(30,45,77,.08);
+  }
+  .intro-card .q{color:#1e2d4d;font-weight:900;font-size:14px;margin-bottom:10px;line-height:1.7;}
+  .intro-card p{font-size:13px;line-height:1.9;color:#4a4536;}
+
+  .summary-box{
+    background:#1e2d4d;border-radius:14px;padding:16px 18px;margin:18px 0;
+    box-shadow:0 4px 16px rgba(30,45,77,.15);
+  }
+  .summary-box .label{font-size:11px;font-weight:900;color:#c9a250;letter-spacing:.08em;margin-bottom:6px;}
+  .summary-box .text{font-size:13.5px;font-weight:700;color:#fff;line-height:1.8;}
+
+  .section-title{font-size:14px;font-weight:900;color:#1e2d4d;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .section-title .num{
+    width:22px;height:22px;border-radius:50%;background:#1e2d4d;border:1px solid #c9a250;
+    color:#e9d9ad;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+
+  .sheet-card{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:18px;margin-bottom:12px;
+  }
+  .sheet-card .sc-title{font-size:13.5px;font-weight:900;color:#1e2d4d;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .sheet-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #f0e9d6;font-size:12.5px;color:#4a4536;}
+  .sheet-row:last-child{border-bottom:none;}
+  .sheet-row .fill{color:#9a9282;font-size:11.5px;}
+
+  .warn-box{
+    background:#fbf3e3;border-left:3px solid #c9a250;border-radius:0 10px 10px 0;
+    padding:14px 16px;margin:16px 0;font-size:12.5px;line-height:1.85;color:#4a4536;
+  }
+  .warn-box .w-label{font-weight:900;color:#a5791f;margin-bottom:4px;display:block;}
+
+  .divider-note{
+    text-align:center;font-size:11px;color:#9a9282;margin:22px 0;padding:14px 0;
+    border-top:1px dashed #c9a250;border-bottom:1px dashed #c9a250;
+  }
+
+  .key-line{
+    text-align:center;font-size:14px;font-weight:900;color:#1e2d4d;margin:18px 0;line-height:1.8;
+    padding:18px;background:#fbf3e3;border-radius:12px;border:1px solid #c9a250;
+  }
+  .key-line .hl{color:#a5791f;}
+
+  .next-box{
+    margin-top:28px;background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:16px;
+    font-size:12px;color:#5c5748;line-height:1.85;
+  }
+  .next-box b{color:#1e2d4d;}
+
+  .nav-btn{
+    display:block;margin:24px 16px 0;max-width:720px;margin-left:auto;margin-right:auto;
+    color:#fff;font-size:14px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
+    text-decoration:none;background:linear-gradient(90deg,#1e2d4d,#2d4270);
+    box-shadow:0 4px 16px rgba(30,45,77,.25);border:1px solid #c9a250;
+  }
+</style>
+</head>
+<body>
+
+<div class="back-nav"><a href="index.html?open=kiso">← 基礎編に戻る</a></div>
+
+<div class="hero">
+  <div class="chapter-badge">📗 基礎編 ⑥</div>
+  <h1>自己分析シート</h1>
+  <p>あなたのお金を全部見える化する</p>
+</div>
+
+<div class="section-wrap">
+
+  <div class="intro-card">
+    <div class="q">✅ あなたのお金事情が丸裸に！？まずは自分を分析するために必要な分析シート。「あなたのお金を全部見える化」します。</div>
+    <p>考え方の次は「自己分析」であなたのお金を見える化していきます。ここでは「具体的な目標資産額」「貯めた先で何がしたいのか」などの目標設定。あなたの「収入」「口座」などの資産額。「家賃」「光熱費」などの支出額。これを全部書き出してあなたの家計を見える化していきます。</p>
+  </div>
+
+  <div class="summary-box">
+    <div class="label">SUMMARY</div>
+    <div class="text">収入・支出・資産・負債を洗い出す様式</div>
+  </div>
+
+  <div class="section-title"><span class="num">1</span>目標設定シート</div>
+  <div class="sheet-card">
+    <div class="sc-title">🎯 目標</div>
+    <div class="sheet-row"><span>目標資産額</span><span class="fill">＿＿＿＿万円</span></div>
+    <div class="sheet-row"><span>いつまでに</span><span class="fill">＿＿＿＿年後</span></div>
+    <div class="sheet-row"><span>貯めた先で何がしたいか</span><span class="fill">＿＿＿＿＿＿＿＿</span></div>
+  </div>
+
+  <div class="section-title"><span class="num">2</span>資産シート（収入・口座）</div>
+  <div class="sheet-card">
+    <div class="sc-title">💰 資産</div>
+    <div class="sheet-row"><span>月の収入（本業）</span><span class="fill">＿＿＿＿円</span></div>
+    <div class="sheet-row"><span>月の収入（副業・その他）</span><span class="fill">＿＿＿＿円</span></div>
+    <div class="sheet-row"><span>銀行口座の残高（全口座合計）</span><span class="fill">＿＿＿＿円</span></div>
+    <div class="sheet-row"><span>証券口座・投資資産</span><span class="fill">＿＿＿＿円</span></div>
+  </div>
+
+  <div class="section-title"><span class="num">3</span>支出シート（固定費・変動費）</div>
+  <div class="sheet-card">
+    <div class="sc-title">🏠 固定費</div>
+    <div class="sheet-row"><span>住居費（家賃・ローン）</span><span class="fill">＿＿＿＿円</span></div>
+    <div class="sheet-row"><span>通信費</span><span class="fill">＿＿＿＿円</span></div>
+    <div class="sheet-row"><span>光熱費</span><span class="fill">＿＿＿＿円</span></div>
+    <div class="sheet-row"><span>保険料</span><span class="fill">＿＿＿＿円</span></div>
+    <div class="sheet-row"><span>car・税金関連</span><span class="fill">＿＿＿＿円</span></div>
+  </div>
+  <div class="sheet-card">
+    <div class="sc-title">🛍️ 変動費</div>
+    <div class="sheet-row"><span>食費</span><span class="fill">＿＿＿＿円</span></div>
+    <div class="sheet-row"><span>日用品・その他</span><span class="fill">＿＿＿＿円</span></div>
+    <div class="sheet-row"><span>娯楽・交際費</span><span class="fill">＿＿＿＿円</span></div>
+  </div>
+
+  <div class="warn-box">
+    <span class="w-label">💡 まずは「現状」を全部書き出す</span>
+    細かい金額が分からなくても大丈夫です。おおよその数字でOK。まずは全体像を見える化することが目的です。
+  </div>
+
+  <div class="divider-note">収入・支出・資産・負債を洗い出す</div>
+
+  <div class="key-line">
+    あなたのお金を<br>
+    <span class="hl">全部見える化する</span>
+  </div>
+
+  <div class="next-box">
+    <b>次に進むには：</b> 上のシートの具体的な書き方・記入手順は基礎編⑦「自己分析の書き方」で初心者向けに解説します。
+  </div>
+
+</div>
+
+<a href="index.html?open=kiso" class="nav-btn">👆 基礎編に戻る</a>
+
+</body>
+</html>

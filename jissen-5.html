@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>⑤PCBAサイクル - GROW</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#f7f3ea;}
+  body{
+    font-family:'Hiragino Sans',sans-serif;color:#1e2d4d;
+    min-height:100vh;padding-bottom:40px;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(201,162,80,.08), transparent 45%),
+      #f7f3ea;
+  }
+
+  .back-nav{padding:14px 16px;background:#fff;border-bottom:1px solid #e3d4ad;}
+  .back-nav a{color:#1e2d4d;font-size:13px;font-weight:700;text-decoration:none;}
+
+  .hero{
+    position:relative;background:#1e2d4d;color:#fff;padding:36px 20px 30px;text-align:center;
+    border-bottom:3px solid #c9a250;
+  }
+  .chapter-badge{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+    color:#1e2d4d;background:#e9d9ad;padding:4px 16px;border-radius:99px;margin-bottom:14px;
+  }
+  .hero h1{font-size:22px;font-weight:900;line-height:1.6;margin-bottom:10px;color:#fff;}
+  .hero p{font-size:12.5px;color:#cdd3e0;line-height:1.7;}
+
+  .section-wrap{padding:22px 16px 0;max-width:720px;margin:0 auto;}
+
+  .intro-card{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:20px;margin-bottom:18px;
+    box-shadow:0 4px 16px rgba(30,45,77,.08);
+  }
+  .intro-card .q{color:#1e2d4d;font-weight:900;font-size:14px;margin-bottom:10px;line-height:1.7;}
+  .intro-card p{font-size:13px;line-height:1.9;color:#4a4536;}
+
+  .summary-box{
+    background:#1e2d4d;border-radius:14px;padding:16px 18px;margin:18px 0;
+    box-shadow:0 4px 16px rgba(30,45,77,.15);
+  }
+  .summary-box .label{font-size:11px;font-weight:900;color:#c9a250;letter-spacing:.08em;margin-bottom:6px;}
+  .summary-box .text{font-size:13.5px;font-weight:700;color:#fff;line-height:1.8;}
+
+  .flow-box{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:18px;margin:16px 0;
+  }
+  .flow-step{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#3c3828;padding:6px 0;}
+  .flow-step .fn{color:#1e2d4d;font-weight:900;flex-shrink:0;}
+  .flow-arrow{text-align:center;color:#c9a250;font-size:14px;padding:2px 0;}
+
+  .section-title{font-size:14px;font-weight:900;color:#1e2d4d;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .section-title .num{
+    width:22px;height:22px;border-radius:50%;background:#1e2d4d;border:1px solid #c9a250;
+    color:#e9d9ad;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+
+  .power-card{
+    background:#fff;border:1px solid #e3d4ad;border-left:3px solid #c9a250;border-radius:10px;
+    padding:16px;margin-bottom:10px;
+  }
+  .power-card .p-title{font-size:13.5px;font-weight:900;color:#1e2d4d;margin-bottom:6px;}
+  .power-card .p-desc{font-size:12.5px;line-height:1.8;color:#5c5748;}
+
+  .compare-row{display:flex;gap:8px;margin:8px 0;}
+  .compare-item{
+    flex:1;border-radius:10px;padding:10px 12px;font-size:12px;line-height:1.6;
+  }
+  .compare-item.bad{background:#fbe9e9;color:#8a3a35;}
+  .compare-item.good{background:#eef7ee;color:#2f6b3a;}
+  .compare-item .ci-mark{font-weight:900;margin-right:4px;}
+
+  .warn-box{
+    background:#fbf3e3;border-left:3px solid #c9a250;border-radius:0 10px 10px 0;
+    padding:14px 16px;margin:16px 0;font-size:12.5px;line-height:1.85;color:#4a4536;
+  }
+  .warn-box .w-label{font-weight:900;color:#a5791f;margin-bottom:4px;display:block;}
+
+  .story-box{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:18px;margin:16px 0;
+    font-size:12.5px;line-height:1.9;color:#4a4536;
+  }
+  .story-box .s-label{font-weight:900;color:#1e2d4d;margin-bottom:8px;display:block;font-size:13px;}
+
+  .divider-note{
+    text-align:center;font-size:11px;color:#9a9282;margin:22px 0;padding:14px 0;
+    border-top:1px dashed #c9a250;border-bottom:1px dashed #c9a250;
+  }
+
+  .key-line{
+    text-align:center;font-size:14px;font-weight:900;color:#1e2d4d;margin:18px 0;line-height:1.8;
+    padding:18px;background:#fbf3e3;border-radius:12px;border:1px solid #c9a250;
+  }
+  .key-line .hl{color:#a5791f;}
+
+  .next-box{
+    margin-top:28px;background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:16px;
+    font-size:12px;color:#5c5748;line-height:1.85;
+  }
+  .next-box b{color:#1e2d4d;}
+
+  .nav-btn{
+    display:block;margin:24px 16px 0;max-width:720px;margin-left:auto;margin-right:auto;
+    color:#fff;font-size:14px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
+    text-decoration:none;background:linear-gradient(90deg,#1e2d4d,#2d4270);
+    box-shadow:0 4px 16px rgba(30,45,77,.25);border:1px solid #c9a250;
+  }
+</style>
+</head>
+<body>
+
+<div class="back-nav"><a href="index.html?open=jissen">← 実践編に戻る</a></div>
+
+<div class="hero">
+  <div class="chapter-badge">📘 実践編 ⑤</div>
+  <h1>PCBAサイクル</h1>
+  <p>どんな初心者でも無駄遣いを減らせる実践フレーム</p>
+</div>
+
+<div class="section-wrap">
+
+  <div class="intro-card">
+    <div class="q">✅ どんな知識ゼロの初心者でも無駄遣いを減らせる秘密の手法「PCBAサイクル」の実践方法を解説！</div>
+    <p>どんな資産形成初心者でも驚くほどの効果を発揮する「PCBAサイクル」。事例を交えて書き出すことで、場面ごとに無意識に浪費していたものが確実に減っていきます。もし浪費してしまっても「次はこうして浪費しないようにする」とその場で改善することができるようになります。これをマスターすれば、資産形成に限らず人生単位で好転すること間違いなしです！</p>
+  </div>
+
+  <div class="summary-box">
+    <div class="label">SUMMARY</div>
+    <div class="text">浪費の改善をその場で回す実践フレーム（Problem → Cause → Basis → Action）</div>
+  </div>
+
+  <div class="flow-box">
+    <div class="flow-step"><span class="fn">P</span> Problem（問題点）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">C</span> Cause（原因）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">B</span> Basis（根拠）</div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-step"><span class="fn">A</span> Action（改善策）</div>
+  </div>
+
+  <div class="section-title"><span class="num">1</span>P｜Problem（問題点）は数字で出す</div>
+
+  <div class="power-card">
+    <div class="p-desc">感覚・感情・抽象は禁止。「今浪費してしまったな」とまず認知すること。そこから「今月、無駄な出費が◯円あった」というように、数字で問題点を出します。</div>
+  </div>
+
+  <div class="compare-row">
+    <div class="compare-item bad"><span class="ci-mark">❌</span>浪費しちゃう気がする</div>
+    <div class="compare-item good"><span class="ci-mark">✅</span>今月コンビニで5,000円使った</div>
+  </div>
+
+  <div class="section-title"><span class="num">2</span>C｜Cause（原因）は1つだけ選ぶ</div>
+
+  <div class="power-card">
+    <div class="p-desc">原因は10個も20個もあります。でもPCBAは1個ずつ回します。複数同時に変えると何が効いたか分からなくなるからです。選ぶ基準は「根拠が最も強いもの」。原因を選んだら、何が一番問題そうなところかを挙げます。</div>
+  </div>
+
+  <div class="section-title"><span class="num">3</span>B｜Basis（根拠）はなぜその原因を選んだか</div>
+
+  <div class="power-card">
+    <div class="p-desc">「なぜその原因を選んだのか」の根拠を挙げます。根拠がないと「なんとなくこれが原因かも」という感覚論になってしまいます。根拠があるから「これを直せば浪費が減る」と確信を持って動けます。</div>
+  </div>
+
+  <div class="section-title"><span class="num">4</span>A｜Action（改善策）を実際に実行する</div>
+
+  <div class="power-card">
+    <div class="p-desc">原因が具体的に出ていれば、改善策はシンプルに決まります。実際に実行してみて、うまくいかなければまた改善する。これを繰り返していきます。</div>
+  </div>
+
+  <div class="warn-box">
+    <span class="w-label">💡 その場で改善サイクルを回す</span>
+    浪費してしまっても「次はこうして浪費しないようにする」とその場で改善することができれば、資産形成に限らず人生単位で好転していきます。
+  </div>
+
+  <div class="divider-note">認知する → 原因を1つ選ぶ → 根拠を挙げる → 実行する → 改善する</div>
+
+  <div class="key-line">
+    浪費してしまったら<br>
+    <span class="hl">その場でPCBAを回す</span>
+  </div>
+
+  <div class="next-box">
+    <b>次に進むには：</b> いよいよお金を「増やす」側へ。実践編⑥「投資の基礎基本（NISAの仕組み）」に進みます。
+  </div>
+
+</div>
+
+<a href="index.html?open=jissen" class="nav-btn">👆 実践編に戻る</a>
+
+</body>
+</html>

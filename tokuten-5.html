@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>⑤個別家計診断＆ライフプランニング - GROW</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:#f7f3ea;}
+  body{
+    font-family:'Hiragino Sans',sans-serif;color:#1e2d4d;
+    min-height:100vh;padding-bottom:40px;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(201,162,80,.08), transparent 45%),
+      #f7f3ea;
+  }
+
+  .back-nav{padding:14px 16px;background:#fff;border-bottom:1px solid #e3d4ad;}
+  .back-nav a{color:#1e2d4d;font-size:13px;font-weight:700;text-decoration:none;}
+
+  .hero{
+    position:relative;background:#1e2d4d;color:#fff;padding:36px 20px 30px;text-align:center;
+    border-bottom:3px solid #c9a250;
+  }
+  .chapter-badge{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+    color:#1e2d4d;background:#e9d9ad;padding:4px 16px;border-radius:99px;margin-bottom:14px;
+  }
+  .hero h1{font-size:22px;font-weight:900;line-height:1.6;margin-bottom:10px;color:#fff;}
+  .hero p{font-size:12.5px;color:#cdd3e0;line-height:1.7;}
+
+  .section-wrap{padding:22px 16px 0;max-width:720px;margin:0 auto;}
+
+  .intro-card{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:20px;margin-bottom:18px;
+    box-shadow:0 4px 16px rgba(30,45,77,.08);
+  }
+  .intro-card .q{color:#1e2d4d;font-weight:900;font-size:14px;margin-bottom:10px;line-height:1.7;}
+  .intro-card p{font-size:13px;line-height:1.9;color:#4a4536;}
+
+  .form-card{
+    background:#fff;border:1px solid #e3d4ad;border-radius:14px;padding:20px;margin-bottom:14px;
+    box-shadow:0 4px 16px rgba(30,45,77,.07);
+  }
+  .form-card .f-title{font-size:13.5px;font-weight:900;color:#1e2d4d;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .form-card .f-title .fnum{
+    width:22px;height:22px;border-radius:50%;background:#1e2d4d;border:1px solid #c9a250;
+    color:#e9d9ad;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+
+  .field{margin-bottom:12px;}
+  .field label{display:block;font-size:12px;font-weight:700;color:#5c5748;margin-bottom:5px;}
+  .field input, .field select{
+    width:100%;padding:11px 12px;border:1px solid #d9cfb0;border-radius:8px;
+    font-size:14px;font-family:inherit;color:#1e2d4d;background:#fbf9f3;
+  }
+  .field-row{display:flex;gap:10px;}
+  .field-row .field{flex:1;}
+
+  .radio-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .radio-pill{
+    flex:1;min-width:90px;text-align:center;padding:10px 8px;border:1px solid #d9cfb0;border-radius:10px;
+    font-size:12px;font-weight:700;color:#5c5748;cursor:pointer;background:#fbf9f3;
+  }
+  .radio-pill.active{background:#1e2d4d;color:#e9d9ad;border-color:#1e2d4d;}
+
+  .calc-btn{
+    display:block;width:100%;margin-top:18px;
+    color:#fff;font-size:15px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
+    border:1px solid #c9a250;background:linear-gradient(90deg,#1e2d4d,#2d4270);
+    box-shadow:0 4px 16px rgba(30,45,77,.25);cursor:pointer;
+  }
+
+  .result-wrap{display:none;}
+  .result-summary{
+    background:#1e2d4d;border-radius:14px;padding:18px;margin:20px 0 14px;text-align:center;
+    box-shadow:0 4px 16px rgba(30,45,77,.2);
+  }
+  .result-summary .r-label{font-size:11px;color:#c9a250;font-weight:900;letter-spacing:.06em;margin-bottom:6px;}
+  .result-summary .r-value{font-size:24px;font-weight:900;color:#fff;}
+  .result-summary .r-sub{font-size:11.5px;color:#cdd3e0;margin-top:6px;}
+
+  .result-row{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#fff;border:1px solid #e3d4ad;border-radius:10px;padding:13px 16px;margin-bottom:8px;
+  }
+  .result-row .rr-label{font-size:12.5px;color:#5c5748;}
+  .result-row .rr-value{font-size:14px;font-weight:900;color:#1e2d4d;}
+  .result-row.negative .rr-value{color:#b3463f;}
+  .result-row.positive .rr-value{color:#2d7a4f;}
+
+  .advice-box{
+    background:#fbf3e3;border-left:3px solid #c9a250;border-radius:0 10px 10px 0;
+    padding:16px;margin:16px 0;font-size:12.5px;line-height:1.9;color:#4a4536;
+  }
+  .advice-box .a-title{font-weight:900;color:#a5791f;margin-bottom:6px;display:block;font-size:13px;}
+
+  .sim-table{width:100%;border-collapse:collapse;margin:14px 0;}
+  .sim-table th{background:#1e2d4d;color:#e9d9ad;font-size:11px;padding:9px 6px;text-align:center;}
+  .sim-table td{font-size:12.5px;padding:9px 6px;text-align:center;border-bottom:1px solid #f0e9d6;color:#4a4536;}
+  .sim-table tr:nth-child(even) td{background:#fbf9f3;}
+
+  .line-cta{
+    display:block;margin:20px 0 0;
+    color:#fff;font-size:14px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
+    text-decoration:none;background:#06c755;
+    box-shadow:0 6px 20px rgba(6,199,85,.3);
+  }
+
+  .nav-btn{
+    display:block;margin:24px 16px 0;max-width:720px;margin-left:auto;margin-right:auto;
+    color:#fff;font-size:14px;font-weight:900;text-align:center;padding:16px;border-radius:14px;
+    text-decoration:none;background:linear-gradient(90deg,#1e2d4d,#2d4270);
+    box-shadow:0 4px 16px rgba(30,45,77,.25);border:1px solid #c9a250;
+  }
+
+  .note-box{
+    background:#fbf3e3;border-left:3px solid #c9a250;border-radius:0 10px 10px 0;
+    padding:14px 16px;margin:16px 0;font-size:11px;line-height:1.8;color:#4a4536;
+  }
+</style>
+</head>
+<body>
+
+<div class="back-nav"><a href="index.html">← GROWトップに戻る</a></div>
+
+<div class="hero">
+  <div class="chapter-badge">🎁 特典⑤ あなただけのオリジナル</div>
+  <h1>個別家計診断＆<br>ライフプランニング</h1>
+  <p>収入・支出・資産を分析し、あなたの目標に合わせたプランをシミュレーション</p>
+</div>
+
+<div class="section-wrap">
+
+  <div class="intro-card">
+    <div class="q">あなただけのオリジナル個別家計診断＆ライフプランニング</div>
+    <p>あなたの収入・支出・負債・資産を詳細に分析し、無意識の無駄出費を特定して具体的な改善策を提案します。さらに、あなたの目標（セミリタイア・FIRE・将来の資産形成プラン）に合わせたオリジナルのライフプランをご提案します。実際に運用して数十年後にどうなるのかを、あなたの人生に合わせてシミュレーションできます。</p>
+  </div>
+
+  <div class="form-card">
+    <div class="f-title"><span class="fnum">1</span>収入・支出を入力</div>
+    <div class="field">
+      <label>月の手取り収入（円）</label>
+      <input type="number" id="income" placeholder="例：200000" inputmode="numeric">
+    </div>
+    <div class="field">
+      <label>月の支出合計（円）</label>
+      <input type="number" id="expense" placeholder="例：170000" inputmode="numeric">
+    </div>
+    <div class="field">
+      <label>現在の資産額（貯金＋投資、円）</label>
+      <input type="number" id="assets" placeholder="例：300000" inputmode="numeric">
+    </div>
+    <div class="field">
+      <label>現在の負債額（ローン等、円・なければ0）</label>
+      <input type="number" id="debt" placeholder="例：0" inputmode="numeric">
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="f-title"><span class="fnum">2</span>目標を選択</div>
+    <div class="field">
+      <label>将来の目標</label>
+      <div class="radio-row" id="goalRow">
+        <div class="radio-pill active" data-goal="fire">FIRE</div>
+        <div class="radio-pill" data-goal="semi">セミリタイア</div>
+        <div class="radio-pill" data-goal="normal">着実な資産形成</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>想定運用年数</label>
+      <select id="years">
+        <option value="10">10年</option>
+        <option value="20" selected>20年</option>
+        <option value="30">30年</option>
+        <option value="40">40年</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>想定利回り（年率）</label>
+      <select id="rate">
+        <option value="2">2%（低リスク想定）</option>
+        <option value="4" selected>4%（標準）</option>
+        <option value="6">6%（やや高リスク想定）</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="calc-btn" onclick="calcPlan()">📊 診断する</div>
+
+  <div class="result-wrap" id="resultWrap">
+
+    <div class="result-summary">
+      <div class="r-label">月の収支バランス</div>
+      <div class="r-value" id="rBalance">-</div>
+      <div class="r-sub" id="rBalanceSub"></div>
+    </div>
+
+    <div class="result-row">
+      <div class="rr-label">月の手取り収入</div>
+      <div class="rr-value" id="rIncome">-</div>
+    </div>
+    <div class="result-row">
+      <div class="rr-label">月の支出合計</div>
+      <div class="rr-value" id="rExpense">-</div>
+    </div>
+    <div class="result-row" id="rowBalance">
+      <div class="rr-label">月の黒字 / 赤字</div>
+      <div class="rr-value" id="rDiff">-</div>
+    </div>
+    <div class="result-row">
+      <div class="rr-label">現在の純資産（資産−負債）</div>
+      <div class="rr-value" id="rNet">-</div>
+    </div>
+
+    <div class="advice-box">
+      <span class="a-title">💡 改善アドバイス</span>
+      <div id="rAdvice"></div>
+    </div>
+
+    <div class="advice-box">
+      <span class="a-title">🎯 あなたの目標別プラン</span>
+      <div id="rGoalAdvice"></div>
+    </div>
+
+    <div class="f-title" style="margin:18px 0 10px;"><span class="fnum">📈</span>資産シミュレーション</div>
+    <table class="sim-table" id="simTable">
+      <thead><tr><th>経過年数</th><th>積立元本</th><th>運用後資産（目安）</th></tr></thead>
+      <tbody id="simBody"></tbody>
+    </table>
+
+    <div class="note-box">
+      ※ このシミュレーションは入力内容をもとにした概算です。将来の運用成果を保証するものではありません。実際の資産形成プランは、個別の状況に応じてそうたがLINEで詳しく伴走します。
+    </div>
+
+    <a href="https://lin.ee/tXRnQHW" class="line-cta">💬 この結果をもとにLINEで相談する</a>
+
+  </div>
+
+</div>
+
+<a href="index.html" class="nav-btn">👆 GROWトップに戻る</a>
+
+<script>
+  let selectedGoal = 'fire';
+  document.getElementById('goalRow').addEventListener('click', function(e){
+    const pill = e.target.closest('.radio-pill');
+    if(!pill) return;
+    document.querySelectorAll('#goalRow .radio-pill').forEach(p=>p.classList.remove('active'));
+    pill.classList.add('active');
+    selectedGoal = pill.dataset.goal;
+  });
+
+  function yen(n){
+    return '¥' + Math.round(n).toLocaleString();
+  }
+
+  function calcPlan(){
+    const income = Number(document.getElementById('income').value) || 0;
+    const expense = Number(document.getElementById('expense').value) || 0;
+    const assets = Number(document.getElementById('assets').value) || 0;
+    const debt = Number(document.getElementById('debt').value) || 0;
+    const years = Number(document.getElementById('years').value) || 20;
+    const rate = Number(document.getElementById('rate').value) || 4;
+
+    if(income <= 0){
+      alert('月の手取り収入を入力してください');
+      return;
+    }
+
+    const diff = income - expense;
+    const net = assets - debt;
+
+    document.getElementById('rIncome').textContent = yen(income);
+    document.getElementById('rExpense').textContent = yen(expense);
+    document.getElementById('rDiff').textContent = (diff>=0?'+':'') + yen(diff);
+    document.getElementById('rNet').textContent = yen(net);
+
+    const rowBalance = document.getElementById('rowBalance');
+    rowBalance.className = 'result-row ' + (diff>=0?'positive':'negative');
+
+    const rBalance = document.getElementById('rBalance');
+    const rBalanceSub = document.getElementById('rBalanceSub');
+    if(diff >= 0){
+      rBalance.textContent = '黒字 ' + yen(diff) + ' / 月';
+      rBalanceSub.textContent = 'この黒字分を投資に回せば、資産形成が加速します';
+    } else {
+      rBalance.textContent = '赤字 ' + yen(Math.abs(diff)) + ' / 月';
+      rBalanceSub.textContent = 'まずは支出の見直しから始めましょう';
+    }
+
+    // アドバイス
+    let advice = '';
+    const expenseRatio = income > 0 ? (expense / income) * 100 : 0;
+    if(diff < 0){
+      advice = '支出が収入を上回っています。まずは固定費（家賃・通信費・保険・サブスク）から見直し、月の支出を収入の80%以内に収めることを目標にしましょう。';
+    } else if(expenseRatio > 80){
+      advice = '黒字ですが、支出割合がやや高めです。固定費を中心に見直し、投資に回せる金額を増やせる余地があります。';
+    } else if(expenseRatio > 60){
+      advice = '良いバランスです。この黒字分を毎月自動でNISA口座に積み立てる仕組みを作ると、さらに効率よく資産が増えていきます。';
+    } else {
+      advice = '非常に良い収支バランスです。投資額を増やすことで、目標達成までの期間を大きく短縮できる可能性があります。';
+    }
+    document.getElementById('rAdvice').textContent = advice;
+
+    // 目標別アドバイス
+    let goalAdvice = '';
+    if(selectedGoal === 'fire'){
+      goalAdvice = 'FIREを目指す場合、一般的に「年間支出の25倍の資産」が一つの目安とされています。年間支出が' + yen(expense*12) + 'なら、目標資産額は約' + yen(expense*12*25) + 'です。黒字分をすべて投資に回すペースで、下記シミュレーションの運用年数を参考にしてください。';
+    } else if(selectedGoal === 'semi'){
+      goalAdvice = 'セミリタイアは、生活費の一部を資産収入（配当・取り崩し）でまかない、労働時間を減らす働き方です。まずは生活費の半分程度を資産収入でカバーできる金額を目標にすると現実的です。';
+    } else {
+      goalAdvice = '着実な資産形成では、無理のない金額を長期間続けることが最も重要です。黒字分の中から、生活に支障のない範囲で毎月の積立額を決めましょう。';
+    }
+    document.getElementById('rGoalAdvice').textContent = goalAdvice;
+
+    // シミュレーション（積立：黒字分、複利運用）
+    const monthly = Math.max(diff, 0);
+    const r = rate / 100 / 12;
+    const simBody = document.getElementById('simBody');
+    simBody.innerHTML = '';
+    const checkpoints = [5, 10, Math.min(years,20), years].filter((v,i,a)=>a.indexOf(v)===i && v<=years && v>0).sort((a,b)=>a-b);
+    checkpoints.forEach(y=>{
+      const months = y * 12;
+      const principal = assets + monthly * months;
+      let fv = assets;
+      for(let i=0;i<months;i++){
+        fv = fv * (1+r) + monthly;
+      }
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + y + '年後</td><td>' + yen(principal) + '</td><td><b>' + yen(fv) + '</b></td>';
+      simBody.appendChild(tr);
+    });
+
+    document.getElementById('resultWrap').style.display = 'block';
+    document.getElementById('resultWrap').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+
+</body>
+</html>
